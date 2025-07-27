@@ -21,6 +21,7 @@ Clone the repo
 
 ```
 git clone https://github.com/SyrymAbdikhan/clockit
+cd clockit
 ```
 
 Run with vite
