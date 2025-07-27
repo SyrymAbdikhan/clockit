@@ -9,10 +9,10 @@ services:
       - "3000"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.ytdl-frontend.rule=(Host(`your.domain`))"
-      - "traefik.http.routers.ytdl-frontend.entrypoints=websecure"
-      - "traefik.http.routers.ytdl-frontend.tls.certresolver=myresolver"
-      - "traefik.http.services.ytdl-frontend.loadbalancer.server.port=3000"
+      - "traefik.http.routers.clockit.rule=(Host(`your.domain`))"
+      - "traefik.http.routers.clockit.entrypoints=websecure"
+      - "traefik.http.routers.clockit.tls.certresolver=myresolver"
+      - "traefik.http.services.clockit.loadbalancer.server.port=3000"
 
 networks:
   web:
