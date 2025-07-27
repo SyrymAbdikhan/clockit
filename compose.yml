@@ -9,7 +9,7 @@ services:
       - "3000"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.clockit.rule=(Host(`your.domain`))"
+      - "traefik.http.routers.clockit.rule=Host(`${HOST}`)"
       - "traefik.http.routers.clockit.entrypoints=websecure"
       - "traefik.http.routers.clockit.tls.certresolver=myresolver"
       - "traefik.http.services.clockit.loadbalancer.server.port=3000"

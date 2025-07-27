@@ -17,24 +17,31 @@ Simple countup app
 
 ## Quick Start
 
-Clone the repo
+**Clone the repo**
 
 ```
 git clone https://github.com/SyrymAbdikhan/clockit
 cd clockit
 ```
 
-Run with vite
+**Run with vite**
 
 ```
 npm run preview
 ```
 
-Or run with Docker
+**Or run with Docker** in production server.
+
+First copy `.env.example` file to `.env` and replace placeholders.
+
+Then create a network named `web`:
 
 ```
 docker network create web
-docker compose up -d --build
 ```
 
-Default port is `3000` that can be changed in `nginx.conf`.
+Finaly, run the application
+
+```
+docker compose up -d --build
+```
