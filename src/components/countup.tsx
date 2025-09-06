@@ -22,7 +22,7 @@ export function CountUp({ startDate = new Date(), className }: CountUpProps) {
     <div className={cn("mx-auto flex gap-4 justify-center flex-wrap", className)}>
       <NumberLabel value={days} label="days" />
       <NumberLabel value={hours} label="hours" />
-      <NumberLabel value={minutes} label="minuts" />
+      <NumberLabel value={minutes} label="minutes" />
       <NumberLabel value={seconds} label="seconds" />
     </div>
   );
