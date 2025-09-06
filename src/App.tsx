@@ -21,8 +21,13 @@ export default function App() {
           defaultDate={urlDate}
           defaultTime={urlDate}
           onClick={(new_date) => {
-            setStartDate(new_date);
-            setQueryParam("s", new_date.getTime());
+            if (new_date) {
+              setStartDate(new_date);
+              setQueryParam("s", new_date.getTime());
+            } else {
+              setStartDate(new Date());
+              removeQueryParam("s");
+            }
           }}
           className="w-max mx-auto"
         />
@@ -34,6 +39,12 @@ export default function App() {
 function setQueryParam(key: string, value: any) {
   const url = new URL(window.location.href);
   url.searchParams.set(key, value);
+  window.history.pushState({}, "", url.toString());
+}
+
+function removeQueryParam(key: string) {
+  const url = new URL(window.location.href);
+  url.searchParams.delete(key);
   window.history.pushState({}, "", url.toString());
 }
 

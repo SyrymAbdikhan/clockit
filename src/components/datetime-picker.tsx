@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { ChevronDownIcon } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ChevronDownIcon, XIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 import { Button } from "@/components/ui/button";
@@ -13,11 +13,16 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 interface DatetimePickerProps {
   defaultDate?: Date;
   defaultTime?: Date;
-  onClick?: (new_date: Date) => void;
+  onClick?: (new_date: Date | undefined) => void;
   className?: string;
 }
 
@@ -30,6 +35,11 @@ export function DatetimePicker({
   const [open, setOpen] = useState(false);
   const [date, setDate] = useState<Date | undefined>(defaultDate);
   const [time, setTime] = useState(formatTime(defaultTime));
+
+  useEffect(() => {
+    setDate(defaultDate);
+    setTime(formatTime(defaultTime));
+  }, [defaultDate, defaultTime]);
 
   return (
     <div className={cn("flex gap-4 items-end", className)}>
@@ -86,6 +96,23 @@ export function DatetimePicker({
       >
         Set
       </Button>
+      <Tooltip delayDuration={700}>
+        <TooltipTrigger asChild>
+          <Button
+            variant="outline"
+            onClick={() => {
+              if (onClick) {
+                onClick(undefined);
+              }
+            }}
+          >
+            <XIcon />
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>Reset Time</p>
+        </TooltipContent>
+      </Tooltip>
     </div>
   );
 }
