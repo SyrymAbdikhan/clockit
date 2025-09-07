@@ -24,7 +24,7 @@ export function CountUp({ startDate = new Date(), className }: CountUpProps) {
 
   return (
     <div className={cn(
-      "mx-auto flex gap-4 justify-center flex-wrap",
+      "mx-auto grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4",
       className
     )}>
       <NumberLabel value={days} label="days" />

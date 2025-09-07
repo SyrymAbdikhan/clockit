@@ -29,7 +29,7 @@ export default function App() {
               removeQueryParam("s");
             }
           }}
-          className="w-max mx-auto"
+          className="mx-auto"
         />
       </div>
     </ThemeProvider>
